@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "542808426878",
+    "project_id": "millime-62911",
+    "storage_bucket": "millime-62911.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:542808426878:android:febc300ff82993b3c14b2f",
+        "android_client_info": {
+          "package_name": "com.example.milli_me_menu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmbcv939BhWbNAfc2t4Y8zYT-7hjkami4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
