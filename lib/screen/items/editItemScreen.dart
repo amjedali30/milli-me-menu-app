@@ -77,50 +77,50 @@ class _ItemEditScreenState extends State<ItemEditScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              height: MediaQuery.of(context).size.height * .4,
-              width: double.infinity,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      imagePick(context);
-                    },
-                    child: Container(
-                      height: 200,
-                      width: 200,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(
-                              color: Color.fromARGB(255, 226, 226, 226))),
-                      child: Center(
-                        child: f1 != null
-                            ? Image.network(
-                                widget.item["image"],
-                                fit: BoxFit
-                                    .cover, // adjust the image to cover the whole widget
-                              )
-                            : Icon(
-                                Icons.upload_file,
-                                size: 19,
-                                color: f1 != null
-                                    ? Color.fromARGB(252, 37, 136, 22)
-                                    : Colors.black54,
-                              ),
-                      ),
-                    ),
-                  ),
-                  Text(
-                    f1 != null ? f1! : "upload Image",
-                    style: TextStyle(
-                        fontSize: 11,
-                        color: Color.fromARGB(126, 0, 0, 0),
-                        fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-            ),
+            // Container(
+            //   height: MediaQuery.of(context).size.height * .4,
+            //   width: double.infinity,
+            //   child: Column(
+            //     mainAxisAlignment: MainAxisAlignment.center,
+            //     children: [
+            //       GestureDetector(
+            //         onTap: () {
+            //           imagePick(context);
+            //         },
+            //         child: Container(
+            //           height: 200,
+            //           width: 200,
+            //           decoration: BoxDecoration(
+            //               borderRadius: BorderRadius.circular(10),
+            //               border: Border.all(
+            //                   color: Color.fromARGB(255, 226, 226, 226))),
+            //           child: Center(
+            //             child: f1 != null
+            //                 ? Image.network(
+            //                     widget.item["image"],
+            //                     fit: BoxFit
+            //                         .cover, // adjust the image to cover the whole widget
+            //                   )
+            //                 : Icon(
+            //                     Icons.upload_file,
+            //                     size: 19,
+            //                     color: f1 != null
+            //                         ? Color.fromARGB(252, 37, 136, 22)
+            //                         : Colors.black54,
+            //                   ),
+            //           ),
+            //         ),
+            //       ),
+            //       Text(
+            //         f1 != null ? f1! : "upload Image",
+            //         style: TextStyle(
+            //             fontSize: 11,
+            //             color: Color.fromARGB(126, 0, 0, 0),
+            //             fontWeight: FontWeight.bold),
+            //       ),
+            //     ],
+            //   ),
+            // ),
             SizedBox(
               height: 10,
             ),
@@ -370,64 +370,63 @@ class _ItemEditScreenState extends State<ItemEditScreen> {
                           isLoad = true;
                         });
                         if (categoryData.length > 0) {
-                          if (f1 != null) {
-                            if (isLoad) {
-                              if (nameCntrl != "" && PriceCntrl != "") {
-                                var a = ItemModel(
-                                    name: nameCntrl.text,
-                                    disc: DiscCntrl.text,
-                                    optionPrice: selectedSizeOption,
-                                    category: selectValue!,
-                                    fileName: f1!,
-                                    path: image!);
-                                Provider.of<ItemService>(context, listen: false)
-                                    .create(a)
-                                    .then((val) {
-                                  if (val == 200) {
+                          // if (f1 != null) {
+                          if (isLoad) {
+                            if (nameCntrl != "" && PriceCntrl != "") {
+                              var a = ItemModel(
+                                  name: nameCntrl.text,
+                                  disc: DiscCntrl.text,
+                                  optionPrice: selectedSizeOption,
+                                  category: selectValue!,
+                                  fileName: f1!,
+                                  path: image!);
+                              Provider.of<ItemService>(context, listen: false)
+                                  .create(a)
+                                  .then((val) {
+                                if (val == 200) {
+                                  setState(() {
+                                    isLoad = false;
+                                  });
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        content:
+                                            Text('Item Added Successfully')),
+                                  );
+                                  Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              DashBoardScreen()));
+                                } else {
+                                  setState(() {
                                     setState(() {
                                       isLoad = false;
                                     });
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                          content:
-                                              Text('Item Added Successfully')),
-                                    );
-                                    Navigator.pushReplacement(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                DashBoardScreen()));
-                                  } else {
-                                    setState(() {
-                                      setState(() {
-                                        isLoad = false;
-                                      });
-                                    });
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                          content:
-                                              Text('Error adding Item...!')),
-                                    );
-                                  }
-                                });
-                              } else {
-                                setState(() {
-                                  isLoad = false;
-                                });
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                      content: Text('Category not empty...!')),
-                                );
-                              }
+                                  });
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        content: Text('Error adding Item...!')),
+                                  );
+                                }
+                              });
+                            } else {
+                              setState(() {
+                                isLoad = false;
+                              });
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                    content: Text('Category not empty...!')),
+                              );
                             }
-                          } else {
-                            setState(() {
-                              isLoad = false;
-                            });
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text('Upload Image...!')),
-                            );
                           }
+                          // } else {
+                          //   setState(() {
+                          //     isLoad = false;
+                          //   });
+                          //   ScaffoldMessenger.of(context).showSnackBar(
+                          //     SnackBar(content: Text('Upload Image...!')),
+                          //   );
+                          // }
                         } else {
                           setState(() {
                             isLoad = false;

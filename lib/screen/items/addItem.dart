@@ -66,48 +66,48 @@ class _AddItemState extends State<AddItem> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Image upload section
-              Center(
-                child: GestureDetector(
-                  onTap: () {
-                    imagePick(context);
-                  },
-                  child: Container(
-                    height: 180,
-                    width: 180,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      color: Colors.grey.shade100,
-                      border: Border.all(color: Colors.grey.shade300, width: 1),
-                    ),
-                    child: f1 != null
-                        ? ClipRRect(
-                            borderRadius: BorderRadius.circular(8),
-                            child: Image.file(
-                              image!,
-                              fit: BoxFit.cover,
-                            ),
-                          )
-                        : Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.add_photo_alternate_outlined,
-                                size: 40,
-                                color: Colors.grey.shade600,
-                              ),
-                              SizedBox(height: 8),
-                              Text(
-                                "Upload Image",
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.grey.shade600,
-                                ),
-                              ),
-                            ],
-                          ),
-                  ),
-                ),
-              ),
+              // Center(
+              //   child: GestureDetector(
+              //     onTap: () {
+              //       imagePick(context);
+              //     },
+              //     child: Container(
+              //       height: 180,
+              //       width: 180,
+              //       decoration: BoxDecoration(
+              //         borderRadius: BorderRadius.circular(8),
+              //         color: Colors.grey.shade100,
+              //         border: Border.all(color: Colors.grey.shade300, width: 1),
+              //       ),
+              //       child: f1 != null
+              //           ? ClipRRect(
+              //               borderRadius: BorderRadius.circular(8),
+              //               child: Image.file(
+              //                 image!,
+              //                 fit: BoxFit.cover,
+              //               ),
+              //             )
+              //           : Column(
+              //               mainAxisAlignment: MainAxisAlignment.center,
+              //               children: [
+              //                 Icon(
+              //                   Icons.add_photo_alternate_outlined,
+              //                   size: 40,
+              //                   color: Colors.grey.shade600,
+              //                 ),
+              //                 SizedBox(height: 8),
+              //                 Text(
+              //                   "Upload Image",
+              //                   style: TextStyle(
+              //                     fontSize: 14,
+              //                     color: Colors.grey.shade600,
+              //                   ),
+              //                 ),
+              //               ],
+              //             ),
+              //     ),
+              //   ),
+              // ),
 
               SizedBox(height: 30),
 
