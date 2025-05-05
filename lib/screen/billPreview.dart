@@ -355,7 +355,7 @@ class _BillPreviewState extends State<BillPreview> {
             style: TextStyle(fontSize: 11),
           ),
           Text(
-            "7559067978",
+            "9961 499 500",
             style: TextStyle(fontSize: 11),
           ),
           SizedBox(
@@ -752,7 +752,7 @@ class _BillPreviewState extends State<BillPreview> {
           bold: true),
     );
     bytes += generator.text(
-      "7559067978",
+      "9961 499 500",
       styles: PosStyles(
           align: PosAlign.center,
           height: PosTextSize.size1,

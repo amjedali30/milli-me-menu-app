@@ -65,12 +65,12 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
       drawerScrimColor: Colors.white,
       drawer: MyDrawer(page: "Foodzone"),
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.white),
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
+        iconTheme: const IconThemeData(color: Colors.black87),
         centerTitle: true,
         title: Container(
           height: 60,
-          child: Image(image: AssetImage("assets/images/logo.png")),
+          child: Image(image: AssetImage("assets/images/LOGO2.png")),
         ),
         actions: [
           Padding(
